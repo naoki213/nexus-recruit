@@ -23,7 +23,7 @@ const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta n
 
 await mkdir("docs/images", { recursive: true });
 await writeFile("docs/index.html", html);
-await writeFile("docs/404.html", html.replace("<title>", "<title>404 — "));
+await writeFile("docs/404.html", `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404｜NEXUS Inc.</title><style>${css}</style></head><body><main class="not-found"><span>ERROR / 404</span><strong>PAGE<br>NOT FOUND</strong><p>指定されたページは見つかりませんでした。</p><a href="/nexus-recruit/">NEXUS_OS に戻る →</a></main><style>.not-found{min-height:100svh;padding:8vw;display:flex;flex-direction:column;justify-content:center;background:#111;color:#fff}.not-found span{color:#ff5a36;font:700 14px var(--font-mono)}.not-found strong{margin:30px 0;font:700 clamp(4rem,14vw,11rem)/.8 var(--font-mono);letter-spacing:-.09em}.not-found p{color:#aaa}.not-found a{width:max-content;margin-top:30px;padding:15px;background:#2457ff;font:700 12px var(--font-mono)}</style></body></html>`);
 await writeFile("docs/.nojekyll", "");
 await copyFile("public/favicon.svg", "docs/favicon.svg");
 for (const name of ["day-001.webp", "lunch.webp", "year-03.webp"]) await copyFile(join("public/images", name), join("docs/images", name));
